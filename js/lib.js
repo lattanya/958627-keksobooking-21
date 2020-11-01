@@ -10,7 +10,7 @@
     palace: 'palace',
     flat: 'flat',
     house: 'house',
-    bungalo: 'bungalo',
+    bungalow: 'bungalow',
   };
 
   var FilterHousePrice = {
@@ -99,7 +99,7 @@
   };
 
   var MinHouseTypePrices = {
-    "bungalo": 0,
+    "bungalow": 0,
     "flat": 1000,
     "house": 5000,
     "palace": 10000,
