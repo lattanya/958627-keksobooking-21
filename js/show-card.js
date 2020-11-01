@@ -59,4 +59,3 @@
   window.addShowCardHandler = addShowCardHandler;
 
 })();
-
