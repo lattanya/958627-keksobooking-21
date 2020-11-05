@@ -118,22 +118,8 @@
   const onFiltersChangeDebounced = window.debounce(onFiltersChange);
   mapFiltersForm.addEventListener('change', onFiltersChangeDebounced);
 
-
-  // const onFilterHouseTypeChange = function (evt) {
-  //   const currentFilterValue = evt.target.value;
-  //   const filterDataByHouseType = window.data.filter(function (dataItem) {
-  //     return dataItem.offer.type === currentFilterValue;
-  //   });
-
-  //   window.clearMap();
-  //   window.generateCardsAndPins(filterDataByHouseType);
-  // };
-
-  // filterHouseType.addEventListener('change', onFilterHouseTypeChange);
-
   // для map__features вернуть массив значений
   // написать функцию с несколькими фильтрами, делать фильтр в обработчике,
   // которая будет вызываться на форме, доставать значения и фильтровать данные
 
 }());
-
