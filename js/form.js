@@ -56,7 +56,7 @@
   selectRooms.addEventListener('change', syncRoomsWithCapacity);
 
   // валидация поля минимальная цена
-  // создать объект соотношения типа жилья и минимальной цены
+  // создан объект соотношения типа жилья и минимальной цены
 
   const selectType = window.form.querySelector('#type');
   const inputPrice = window.form.querySelector('#price');
