@@ -3,9 +3,9 @@
 (function () {
 
   // написать словари для каждого фильтра, и заменить условие фильтра, если
-  var DEBOUNCE_TIMEOUT = 500;
+  const DEBOUNCE_TIMEOUT = 500;
 
-  var FilterHouseTypes = {
+  const FilterHouseTypes = {
     any: 'any',
     palace: 'palace',
     flat: 'flat',
@@ -13,28 +13,28 @@
     bungalow: 'bungalow',
   };
 
-  var FilterHousePrice = {
+  const FilterHousePrice = {
     any: 'any',
     middle: 'middle',
     low: 'low',
     high: 'high',
   };
 
-  var FilterHouseRooms = {
+  const FilterHouseRooms = {
     any: 'any',
     one: '1',
     two: '2',
     three: '3',
   };
 
-  var FilterHouseGuests = {
+  const FilterHouseGuests = {
     any: 'any',
     two: '2',
     one: '1',
     zero: '0',
   };
 
-  var FilterHouseFeatures = {
+  const FilterHouseFeatures = {
     wifi: 'wifi',
     dishwasher: 'dishwasher',
     parking: 'parking',
@@ -47,36 +47,36 @@
 
 
 
-  var KeyCodes = {
+  const KeyCodes = {
     ENTER: 13,
     ESC: 27,
   };
 
-  var PinSizes = {
+  const PinSizes = {
     WIDTH: 65,
     HEIGHT: 87,
   };
 
-  var HouseTypes = {
+  const HouseTypes = {
     palace: 'Дворец',
     flat: 'Квартира',
   };
 
-  var HouseCapacity = {
+  const HouseCapacity = {
     ONE_GUEST: 1,
     TWO_GUESTS: 2,
     THREE_GUESTS: 3,
     NO_GUESTS: 0,
   };
 
-  var RoomsAmount = {
+  const RoomsAmount = {
     ONE_ROOM: 1,
     TWO_ROOMS: 2,
     THREE_ROOMS: 3,
     HUNDRED_ROOMS: 100,
   };
 
-  var RoomsCapacity = {
+  const RoomsCapacity = {
     [RoomsAmount.ONE_ROOM]: {
       allowedGuests: [HouseCapacity.ONE_GUEST],
       default: HouseCapacity.ONE_GUEST,
@@ -98,17 +98,17 @@
     },
   };
 
-  var MinHouseTypePrices = {
+  const MinHouseTypePrices = {
     "bungalow": 0,
     "flat": 1000,
     "house": 5000,
     "palace": 10000,
   };
 
-  var findElementCenter = function (element) {
-    var elementWidth = element.clientWidth;
-    var elementHeight = element.clientHeight;
-    var elementCenter = {
+  const findElementCenter = function (element) {
+    const elementWidth = element.clientWidth;
+    const elementHeight = element.clientHeight;
+    const elementCenter = {
       x: elementWidth / 2,
       y: elementHeight / 2,
     };
@@ -117,14 +117,14 @@
 
 
       // переписать на методы массивов
-  var clearMap = function () {
-    var allPins = window.map.querySelectorAll('.map__pin:not(.map__pin--main)');
+  const clearMap = function () {
+    const allPins = window.map.querySelectorAll('.map__pin:not(.map__pin--main)');
 
     allPins.forEach(function (pin) {
       pin.remove();
     });
 
-    var allCards = window.map.querySelectorAll('.popup');
+    const allCards = window.map.querySelectorAll('.popup');
     if (allCards) {
       allCards.forEach(function (card) {
         card.remove();
@@ -132,8 +132,8 @@
     }
   };
 
-  var debounce = function (cb) {
-    var timeout;
+  const debounce = function (cb) {
+    let timeout;
     return function () {
       if (timeout) {
         clearTimeout(timeout);

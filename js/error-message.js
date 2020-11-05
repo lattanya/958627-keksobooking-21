@@ -1,11 +1,11 @@
 'use strict';
 
 (function () {
-  var showErrorMessage = function (errorText) {
-    var template = document.querySelector('#error');
-    var errorBlock = template.content.querySelector('.error');
-    var clone = errorBlock.cloneNode(true);
-    var messageNode = clone.querySelector('.error__message');
+  const showErrorMessage = function (errorText) {
+    const template = document.querySelector('#error');
+    const errorBlock = template.content.querySelector('.error');
+    const clone = errorBlock.cloneNode(true);
+    const messageNode = clone.querySelector('.error__message');
     messageNode.textContent = errorText;
     document.body.appendChild(clone);
   };

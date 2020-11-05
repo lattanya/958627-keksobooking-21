@@ -1,9 +1,9 @@
 'use strict';
 
 (function () {
-  var loadData = function (onLoad, onError) {
-    var URL = 'https://js.dump.academy/keksobooking/data';
-    var xhr = new XMLHttpRequest();
+  const loadData = function (onLoad, onError) {
+    const URL = 'https://js.dump.academy/keksobooking/data';
+    const xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
@@ -40,9 +40,9 @@
   };
 
 
-  var sendData = function (data, onLoad, onError) {
-    var URL = 'https://js.dump.academy/keksobooking';
-    var xhr = new XMLHttpRequest();
+  const sendData = function (data, onLoad, onError) {
+    const URL = 'https://js.dump.academy/keksobooking';
+    const xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {

@@ -1,14 +1,13 @@
-
 'use strict';
 
 (function () {
 // в этой функции обработчики событий клика и клавиатуры на пин, которые будут показывать карточку
 // обявление в функции обработчики и будем добавлять их для пина, также как добавляли для главного пина
 
-  var addShowCardHandler = function (pin, card) {
+  const addShowCardHandler = function (pin, card) {
 
-    var onPinClick = function () {
-      var visibleCard = window.map.querySelector('.map__card:not(.hidden)');
+    const onPinClick = function () {
+      const visibleCard = window.map.querySelector('.map__card:not(.hidden)');
 
       if (visibleCard !== null) {
         visibleCard.classList.add('hidden');
@@ -19,7 +18,7 @@
 
     pin.addEventListener('click', onPinClick);
 
-    var onPinEnterKeydown = function (evt) {
+    const onPinEnterKeydown = function (evt) {
       if (evt.keyCode === window.KeyCodes.ENTER) {
         onPinClick();
       }
@@ -31,8 +30,8 @@
     // клик будет обрабатываться на крестике, а esc на документе, т.е. при нажатии esc проверять
     // есть ли видимая карточка и закрывать ее
 
-    var popupClose = card.querySelector('.popup__close');
-    var onPopupCloseClick = function () {
+    const popupClose = card.querySelector('.popup__close');
+    const onPopupCloseClick = function () {
 
       card.classList.add('hidden');
 
@@ -42,9 +41,9 @@
 
   };
 
-  var onCardEscKeydown = function (evt) {
+  const onCardEscKeydown = function (evt) {
     if (evt.keyCode === window.KeyCodes.ESC) {
-      var visibleCard = window.map.querySelector('.map__card:not(.hidden)');
+      const visibleCard = window.map.querySelector('.map__card:not(.hidden)');
 
       if (visibleCard !== null) {
         visibleCard.classList.add('hidden');
