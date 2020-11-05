@@ -2,7 +2,7 @@
 
 (function () {
   const loadData = function (onLoad, onError) {
-    const URL = 'https://js.dump.academy/keksobooking/data';
+    const URL = 'https://21.javascript.pages.academy/keksobooking/data';
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
@@ -44,7 +44,7 @@
 
 
   const sendData = function (data, onLoad, onError) {
-    const URL = 'https://js.dump.academy/keksobooking';
+    const URL = ' https://21.javascript.pages.academy/keksobooking';
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
 
