@@ -41,11 +41,7 @@
     washer: 'washer',
     elevator: 'elevator',
     conditioner: 'conditioner',
-    };
-
-
-
-
+  };
 
   const KeyCodes = {
     ENTER: 13,
@@ -115,15 +111,13 @@
     return elementCenter;
   };
 
+  // переписать на методы массивов
 
-      // переписать на методы массивов
   const clearMap = function () {
     const allPins = window.map.querySelectorAll('.map__pin:not(.map__pin--main)');
-
     allPins.forEach(function (pin) {
       pin.remove();
     });
-
     const allCards = window.map.querySelectorAll('.popup');
     if (allCards) {
       allCards.forEach(function (card) {
@@ -144,25 +138,25 @@
 
 
 
-   // экспорт
-   window.KeyCodes = KeyCodes;
-   window.PinSizes = PinSizes;
+  // экспорт
+  window.KeyCodes = KeyCodes;
+  window.PinSizes = PinSizes;
 
-   window.HouseTypes = HouseTypes;
-   window.HouseCapacity = HouseCapacity;
-   window.RoomsAmount = RoomsAmount;
-   window.RoomsCapacity = RoomsCapacity;
-   window.MinHouseTypePrices = MinHouseTypePrices;
+  window.HouseTypes = HouseTypes;
+  window.HouseCapacity = HouseCapacity;
+  window.RoomsAmount = RoomsAmount;
+  window.RoomsCapacity = RoomsCapacity;
+  window.MinHouseTypePrices = MinHouseTypePrices;
 
-   window.clearMap = clearMap;
-   window.findElementCenter = findElementCenter;
-   window.debounce = debounce;
+  window.clearMap = clearMap;
+  window.findElementCenter = findElementCenter;
+  window.debounce = debounce;
 
-   window.FilterHouseTypes = FilterHouseTypes;
-   window.FilterHousePrice = FilterHousePrice;
-   window.FilterHouseRooms = FilterHouseRooms;
-   window.FilterHouseGuests = FilterHouseGuests;
-   window.FilterHouseFeatures = FilterHouseFeatures;
+  window.FilterHouseTypes = FilterHouseTypes;
+  window.FilterHousePrice = FilterHousePrice;
+  window.FilterHouseRooms = FilterHouseRooms;
+  window.FilterHouseGuests = FilterHouseGuests;
+  window.FilterHouseFeatures = FilterHouseFeatures;
 })();
 
 
