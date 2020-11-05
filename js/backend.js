@@ -34,8 +34,11 @@
 
     xhr.open('GET', URL, true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // настроить работу с сетью
     // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+
     xhr.send();
   };
 
