@@ -2,7 +2,7 @@
 
 (function () {
 
-  // написать словари для каждого фильтра, и заменить условие фильтра, если
+  // словари для каждого фильтра
   const DEBOUNCE_TIMEOUT = 500;
 
   const FilterHouseTypes = {
@@ -111,7 +111,7 @@
     return elementCenter;
   };
 
-  // переписать на методы массивов
+  // перепиcано на методы массивов
 
   const clearMap = function () {
     const allPins = window.map.querySelectorAll('.map__pin:not(.map__pin--main)');
