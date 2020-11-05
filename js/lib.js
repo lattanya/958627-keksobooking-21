@@ -132,11 +132,9 @@
       if (timeout) {
         clearTimeout(timeout);
       }
-      timeout = setTimeout(cb, DEBOUNCE_TIMEOUT)
+      timeout = setTimeout(cb, DEBOUNCE_TIMEOUT);
     };
   };
-
-
 
   // экспорт
   window.KeyCodes = KeyCodes;
@@ -158,5 +156,3 @@
   window.FilterHouseGuests = FilterHouseGuests;
   window.FilterHouseFeatures = FilterHouseFeatures;
 })();
-
-
