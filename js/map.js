@@ -118,9 +118,6 @@
   mainPin.addEventListener('mousedown', onMainPinMousedown);
   mainPin.addEventListener('keydown', onMainPinEnterKeydown);
 
-
-
-
   // экспорт
 
   window.form = form;
@@ -129,5 +126,4 @@
   window.generateCardsAndPins = generateCardsAndPins;
   window.toggleForm = toggleForm;
   window.mainPin = mainPin;
-
 })();

@@ -11,13 +11,7 @@
   const filterHouseGuests = mapFiltersForm.querySelector('#housing-guests');
   const filterHouseFeatures = Array.from(mapFiltersForm.querySelectorAll('input[name="features"]'));
 
-
-  const getFilterHouseTypeValue = function () {
-    return filterHouseType.value;
-  };
-
-
-  // 18.10.20 записать в константы значения фильтров прайс
+  // записать в константы значения фильтров прайс
   // переписать фильтр используя функции проверки для каждого фильтра
 
   const checkFilterHouseTypeValue = function (offer) {

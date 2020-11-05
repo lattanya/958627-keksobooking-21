@@ -108,20 +108,13 @@
     window.toggleForm(true);
     window.map.classList.add('map--faded');
     moveMainPinToCenter();
-
-
- // сделать третий шаг задания
-
   };
 
 
   window.form.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    const forsmData = new FormData(window.form);
+    const formsData = new FormData(window.form);
     // window.sendData(formData, onFormSubmit, window.showErrorMessage);
     onFormSubmit();
   });
-
-  // экспорт
-
 })();
