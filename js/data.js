@@ -1,8 +1,8 @@
 'use strict';
 
 (function () {
-  var getData = function () {
-    var dataArray = [
+  const getData = function () {
+    const dataArray = [
       {
         author: {
           avatar: 'img/avatars/user01.png',

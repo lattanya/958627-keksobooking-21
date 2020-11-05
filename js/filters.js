@@ -4,15 +4,15 @@
 
   // фильтр по полю тип жилья
 
-  var mapFiltersForm = window.map.querySelector('.map__filters');
-  var filterHouseType = mapFiltersForm.querySelector('#housing-type');
-  var filterHousePrice = mapFiltersForm.querySelector('#housing-price');
-  var filterHouseRooms = mapFiltersForm.querySelector('#housing-rooms');
-  var filterHouseGuests = mapFiltersForm.querySelector('#housing-guests');
-  var filterHouseFeatures = Array.from(mapFiltersForm.querySelectorAll('input[name="features"]'));
+  const mapFiltersForm = window.map.querySelector('.map__filters');
+  const filterHouseType = mapFiltersForm.querySelector('#housing-type');
+  const filterHousePrice = mapFiltersForm.querySelector('#housing-price');
+  const filterHouseRooms = mapFiltersForm.querySelector('#housing-rooms');
+  const filterHouseGuests = mapFiltersForm.querySelector('#housing-guests');
+  const filterHouseFeatures = Array.from(mapFiltersForm.querySelectorAll('input[name="features"]'));
 
 
-  var getFilterHouseTypeValue = function () {
+  const getFilterHouseTypeValue = function () {
     return filterHouseType.value;
   };
 
@@ -20,19 +20,19 @@
   // 18.10.20 записать в константы значения фильтров прайс
   // переписать фильтр используя функции проверки для каждого фильтра
 
-  var checkFilterHouseTypeValue = function (offer) {
-    var valueFilterHouseType = filterHouseType.value;
-    var offerType = offer.type;
+  const checkFilterHouseTypeValue = function (offer) {
+    const valueFilterHouseType = filterHouseType.value;
+    const offerType = offer.type;
 
     return (valueFilterHouseType === window.FilterHouseTypes.any || offerType === valueFilterHouseType);
   };
 
-  var LOW_PRICE = 10000;
-  var HIGH_PRICE = 50000;
+  const LOW_PRICE = 10000;
+  const HIGH_PRICE = 50000;
 
-  var checkFilterHousePriceValue = function (offer) {
-    var valueFilterHousePrice = filterHousePrice.value;
-    var offerPrice = offer.price;
+  const checkFilterHousePriceValue = function (offer) {
+    const valueFilterHousePrice = filterHousePrice.value;
+    const offerPrice = offer.price;
 
     switch (valueFilterHousePrice) {
       case window.FilterHousePrice.any:
@@ -48,9 +48,9 @@
     }
   };
 
-  var checkFilterHouseRoomsValue = function (offer) {
-    var valueFilterHouseRooms = filterHouseRooms.value;
-    var offerRooms = offer.rooms;
+  const checkFilterHouseRoomsValue = function (offer) {
+    const valueFilterHouseRooms = filterHouseRooms.value;
+    const offerRooms = offer.rooms;
 
     switch (valueFilterHouseRooms) {
       case window.FilterHouseRooms.any:
@@ -66,9 +66,9 @@
     }
   };
 
-  var checkFilterHouseGuestsValue = function (offer) {
-    var valueFilterHouseGuests = filterHouseGuests.value;
-    var offerGuests = offer.guests;
+  const checkFilterHouseGuestsValue = function (offer) {
+    const valueFilterHouseGuests = filterHouseGuests.value;
+    const offerGuests = offer.guests;
 
     switch (valueFilterHouseGuests) {
       case window.FilterHouseGuests.any:
@@ -85,15 +85,15 @@
   };
 
 
-  var checkFilterHouseFeaturesValue = function (offer) {
-    var checkedFeaturesNodes = filterHouseFeatures.filter(function (input) {
+  const checkFilterHouseFeaturesValue = function (offer) {
+    const checkedFeaturesNodes = filterHouseFeatures.filter(function (input) {
       return input.checked;
     });
-    var checkedFeatures = checkedFeaturesNodes.map(function (input) {
+    const checkedFeatures = checkedFeaturesNodes.map(function (input) {
       return input.value;
     });
 
-    var offerFeatures = offer.features;
+    const offerFeatures = offer.features;
 
     return checkedFeatures.every(function (feature) {
       return offerFeatures.indexOf(feature) !== -1;
@@ -104,11 +104,11 @@
   // выучить методы массивов и input
   // прочитать про замыкания и области видимости
 
-  var onFiltersChange = function () {
+  const onFiltersChange = function () {
 
-    var filterData = window.data.filter(function (dataItem) {
-      var offer = dataItem.offer;
-      var isFilterValid = ((checkFilterHouseTypeValue(offer))
+    const filterData = window.data.filter(function (dataItem) {
+      const offer = dataItem.offer;
+      const isFilterValid = ((checkFilterHouseTypeValue(offer))
       && (checkFilterHousePriceValue(offer))
       && (checkFilterHouseRoomsValue(offer))
       && (checkFilterHouseGuestsValue(offer))
@@ -121,13 +121,13 @@
     window.generateCardsAndPins(filterData);
   };
 
-  var onFiltersChangeDebounced = window.debounce(onFiltersChange);
+  const onFiltersChangeDebounced = window.debounce(onFiltersChange);
   mapFiltersForm.addEventListener('change', onFiltersChangeDebounced);
 
 
-  // var onFilterHouseTypeChange = function (evt) {
-  //   var currentFilterValue = evt.target.value;
-  //   var filterDataByHouseType = window.data.filter(function (dataItem) {
+  // const onFilterHouseTypeChange = function (evt) {
+  //   const currentFilterValue = evt.target.value;
+  //   const filterDataByHouseType = window.data.filter(function (dataItem) {
   //     return dataItem.offer.type === currentFilterValue;
   //   });
 
