@@ -1,80 +1,80 @@
-'use strict';
+`use strict`;
 
 (function () {
   const loadData = function (onLoad, onError) {
-    const URL = 'https://21.javascript.pages.academy/keksobooking/data';
+    const URL = `https://21.javascript.pages.academy/keksobooking/data`;
     const xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
+    xhr.responseType = `json`;
 
-    xhr.addEventListener('load', function () {
+    xhr.addEventListener(`load`, function () {
       switch (xhr.status) {
         case 200:
           onLoad(xhr.response);
           break;
 
         case 404:
-          onError('ошибка' + xhr.status + ' ' + xhr.statusText + 'данные не найдены');
+          onError(`ошибка` + xhr.status + ` ` + xhr.statusText + `данные не найдены`);
           break;
 
         default:
-          onError('ошибка' + xhr.status + ' ' + xhr.statusText);
+          onError(`ошибка` + xhr.status + ` ` + xhr.statusText);
           break;
       }
     });
 
-    xhr.addEventListener('error', function () {
-      onError('ошибка соединения с сервером');
+    xhr.addEventListener(`error`, function () {
+      onError(`ошибка соединения с сервером`);
     });
 
-    xhr.addEventListener('timeout', function () {
-      onError('истек таймаут соединения');
+    xhr.addEventListener(`timeout`, function () {
+      onError(`истек таймаут соединения`);
     });
 
     xhr.timeout = 10000;
 
-    xhr.open('GET', URL, true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.open(`GET`, URL, true);
+    xhr.setRequestHeader(`Content-Type`, `application/x-www-form-urlencoded`);
 
     // настроить работу с сетью
-    // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    // xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET');
+    // xhr.setRequestHeader(`Access-Control-Allow-Origin`, `*`);
+    // xhr.setRequestHeader(`Access-Control-Allow-Methods`, `GET`);
 
     xhr.send();
   };
 
 
   const sendData = function (data, onLoad, onError) {
-    const URL = ' https://21.javascript.pages.academy/keksobooking';
+    const URL = ` https://21.javascript.pages.academy/keksobooking`;
     const xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
+    xhr.responseType = `json`;
 
-    xhr.addEventListener('load', function () {
+    xhr.addEventListener(`load`, function () {
       switch (xhr.status) {
         case 200:
           onLoad();
           break;
 
         case 404:
-          onError('ошибка' + xhr.status + ' ' + xhr.statusText + 'данные не найдены');
+          onError(`ошибка` + xhr.status + ` ` + xhr.statusText + `данные не найдены`);
           break;
 
         default:
-          onError('ошибка' + xhr.status + ' ' + xhr.statusText);
+          onError(`ошибка` + xhr.status + ` ` + xhr.statusText);
           break;
       }
 
-      xhr.addEventListener('error', function () {
-        onError('ошибка соединения с сервером');
+      xhr.addEventListener(`error`, function () {
+        onError(`ошибка соединения с сервером`);
       });
 
-      xhr.addEventListener('timeout', function () {
-        onError('истек таймаут соединения');
+      xhr.addEventListener(`timeout`, function () {
+        onError(`истек таймаут соединения`);
       });
 
       xhr.timeout = 10000;
 
-      xhr.open('POST', URL, true);
-      xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+      xhr.open(`POST`, URL, true);
+      xhr.setRequestHeader(`Content-Type`, `multipart/form-data`);
       xhr.send(data);
     });
 

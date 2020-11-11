@@ -1,4 +1,4 @@
-'use strict';
+`use strict`;
 
 (function () {
 
@@ -6,41 +6,41 @@
   const DEBOUNCE_TIMEOUT = 500;
 
   const FilterHouseTypes = {
-    any: 'any',
-    palace: 'palace',
-    flat: 'flat',
-    house: 'house',
-    bungalow: 'bungalow',
+    any: `any`,
+    palace: `palace`,
+    flat: `flat`,
+    house: `house`,
+    bungalow: `bungalow`,
   };
 
   const FilterHousePrice = {
-    any: 'any',
-    middle: 'middle',
-    low: 'low',
-    high: 'high',
+    any: `any`,
+    middle: `middle`,
+    low: `low`,
+    high: `high`,
   };
 
   const FilterHouseRooms = {
-    any: 'any',
-    one: '1',
-    two: '2',
-    three: '3',
+    any: `any`,
+    one: `1`,
+    two: `2`,
+    three: `3`,
   };
 
   const FilterHouseGuests = {
-    any: 'any',
-    two: '2',
-    one: '1',
-    zero: '0',
+    any: `any`,
+    two: `2`,
+    one: `1`,
+    zero: `0`,
   };
 
   const FilterHouseFeatures = {
-    wifi: 'wifi',
-    dishwasher: 'dishwasher',
-    parking: 'parking',
-    washer: 'washer',
-    elevator: 'elevator',
-    conditioner: 'conditioner',
+    wifi: `wifi`,
+    dishwasher: `dishwasher`,
+    parking: `parking`,
+    washer: `washer`,
+    elevator: `elevator`,
+    conditioner: `conditioner`,
   };
 
   const KeyCodes = {
@@ -54,8 +54,8 @@
   };
 
   const HouseTypes = {
-    palace: 'Дворец',
-    flat: 'Квартира',
+    palace: `Дворец`,
+    flat: `Квартира`,
   };
 
   const HouseCapacity = {
@@ -114,11 +114,11 @@
   // перепиcано на методы массивов
 
   const clearMap = function () {
-    const allPins = window.map.querySelectorAll('.map__pin:not(.map__pin--main)');
+    const allPins = window.map.querySelectorAll(`.map__pin:not(.map__pin--main)`);
     allPins.forEach(function (pin) {
       pin.remove();
     });
-    const allCards = window.map.querySelectorAll('.popup');
+    const allCards = window.map.querySelectorAll(`.popup`);
     if (allCards) {
       allCards.forEach(function (card) {
         card.remove();

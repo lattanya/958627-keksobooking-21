@@ -1,15 +1,15 @@
-'use strict';
+`use strict`;
 
 (function () {
 
   // фильтр по полю тип жилья
 
-  const mapFiltersForm = window.map.querySelector('.map__filters');
-  const filterHouseType = mapFiltersForm.querySelector('#housing-type');
-  const filterHousePrice = mapFiltersForm.querySelector('#housing-price');
-  const filterHouseRooms = mapFiltersForm.querySelector('#housing-rooms');
-  const filterHouseGuests = mapFiltersForm.querySelector('#housing-guests');
-  const filterHouseFeatures = Array.from(mapFiltersForm.querySelectorAll('input[name="features"]'));
+  const mapFiltersForm = window.map.querySelector(`.map__filters`);
+  const filterHouseType = mapFiltersForm.querySelector(`#housing-type`);
+  const filterHousePrice = mapFiltersForm.querySelector(`#housing-price`);
+  const filterHouseRooms = mapFiltersForm.querySelector(`#housing-rooms`);
+  const filterHouseGuests = mapFiltersForm.querySelector(`#housing-guests`);
+  const filterHouseFeatures = Array.from(mapFiltersForm.querySelectorAll(`input[name="features"]`));
 
   // в константы записаны значения фильтров прайс
   // фильтр переписан используя функции проверки для каждого фильтра
@@ -116,7 +116,7 @@
   };
 
   const onFiltersChangeDebounced = window.debounce(onFiltersChange);
-  mapFiltersForm.addEventListener('change', onFiltersChangeDebounced);
+  mapFiltersForm.addEventListener(`change`, onFiltersChangeDebounced);
 
   // для map__features вернуть массив значений
   // написать функцию с несколькими фильтрами, делать фильтр в обработчике,
