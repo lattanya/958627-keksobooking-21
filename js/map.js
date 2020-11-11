@@ -30,12 +30,6 @@
     map.insertBefore(fragmentForCards, filtersContainer);
   };
 
-  const data = window.getData();
-  // generateCardsAndPins(data);
-
-
-  // window.loadData(generateCardsAndPins, window.showErrorMessage);
-
   const toggleForm = function (isDisabled) {
     const fieldsets = form.querySelectorAll(`fieldset`);
     for (let i = 0; i < fieldsets.length; i++) {
@@ -74,7 +68,13 @@
     map.classList.remove(`map--faded`);
     toggleForm(false);
     findPinPosition();
-    generateCardsAndPins(data);
+
+    if (window.getData().length === 0) {
+      window.loadData(function (data) {
+        window.saveData(data);
+        generateCardsAndPins(data);
+      }, window.showErrorMessage);
+    }
 
     const onMainPinMousemove = function (evt) {
       const pageWidth = document.querySelector(`html`).clientWidth;
@@ -122,7 +122,6 @@
 
   window.form = form;
   window.map = map;
-  window.data = data;
   window.generateCardsAndPins = generateCardsAndPins;
   window.toggleForm = toggleForm;
   window.mainPin = mainPin;

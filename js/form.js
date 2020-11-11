@@ -113,8 +113,7 @@
 
   window.form.addEventListener(`submit`, function (evt) {
     evt.preventDefault();
-    const formsData = new FormData(window.form);
-    // window.sendData(formData, onFormSubmit, window.showErrorMessage);
-    onFormSubmit();
+    const formData = new FormData(window.form);
+    window.sendData(formData, onFormSubmit, window.showErrorMessage);
   });
 })();

@@ -100,7 +100,7 @@
 
   const onFiltersChange = function () {
 
-    const filterData = window.data.filter(function (dataItem) {
+    const filterData = window.getData().filter(function (dataItem) {
       const offer = dataItem.offer;
       const isFilterValid = ((checkFilterHouseTypeValue(offer))
       && (checkFilterHousePriceValue(offer))
