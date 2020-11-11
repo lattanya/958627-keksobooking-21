@@ -26,7 +26,7 @@
 
     pin.addEventListener(`keydown`, onPinEnterKeydown);
 
-    // добавить обработчики для клика и для клаивши Esc, которые будут закрывать карточку
+    // обработчики для клика и для клаивши Esc, которые будут закрывать карточку
     // клик будет обрабатываться на крестике, а esc на документе, т.е. при нажатии esc проверять
     // есть ли видимая карточка и закрывать ее
 
@@ -36,9 +36,7 @@
       card.classList.add(`hidden`);
 
     };
-
     popupClose.addEventListener(`click`, onPopupCloseClick);
-
   };
 
   const onCardEscKeydown = function (evt) {

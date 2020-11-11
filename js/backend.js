@@ -36,7 +36,6 @@
     xhr.send();
   };
 
-
   const sendData = function (data, onLoad, onError) {
     const URL = `https://21.javascript.pages.academy/keksobooking`;
     const xhr = new XMLHttpRequest();
