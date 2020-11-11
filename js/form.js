@@ -35,8 +35,6 @@
 
   // функция синхронизации комнат и гостей, которая вызывается на обработчике события
   // change для селекта rooms при изменении селекта
-  // rooms должно изменять значение селекта capacity, если оно не правильное, то используется поле дефолт
-
 
   const syncRoomsWithCapacity = function () {
     const capacityValue = selectCapacity.value;
@@ -61,7 +59,6 @@
   const selectType = window.form.querySelector(`#type`);
   const inputPrice = window.form.querySelector(`#price`);
 
-
   const syncPrice = function () {
 
     const houseTypeValue = selectType.value;
@@ -79,7 +76,6 @@
 
   const selectTimeIn = window.form.querySelector(`#timein`);
   const selectTimeOut = window.form.querySelector(`#timeout`);
-
 
   const syncTime = function (evt) {
 
@@ -109,7 +105,6 @@
     window.map.classList.add(`map--faded`);
     moveMainPinToCenter();
   };
-
 
   window.form.addEventListener(`submit`, function (evt) {
     evt.preventDefault();

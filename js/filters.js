@@ -2,6 +2,9 @@
 
 (function () {
 
+  const LOW_PRICE = 10000;
+  const HIGH_PRICE = 50000;
+
   // фильтр по полю тип жилья
 
   const mapFiltersForm = window.map.querySelector(`.map__filters`);
@@ -20,9 +23,6 @@
 
     return (valueFilterHouseType === window.FilterHouseTypes.any || offerType === valueFilterHouseType);
   };
-
-  const LOW_PRICE = 10000;
-  const HIGH_PRICE = 50000;
 
   const checkFilterHousePriceValue = function (offer) {
     const valueFilterHousePrice = filterHousePrice.value;
@@ -78,7 +78,6 @@
     }
   };
 
-
   const checkFilterHouseFeaturesValue = function (offer) {
     const checkedFeaturesNodes = filterHouseFeatures.filter(function (input) {
       return input.checked;
@@ -94,9 +93,6 @@
     });
 
   };
-
-  // методы массивов и input
-  // замыкания и области видимости
 
   const onFiltersChange = function () {
 
@@ -117,9 +113,4 @@
 
   const onFiltersChangeDebounced = window.debounce(onFiltersChange);
   mapFiltersForm.addEventListener(`change`, onFiltersChangeDebounced);
-
-  // для map__features вернуть массив значений
-  // написать функцию с несколькими фильтрами, делать фильтр в обработчике,
-  // которая будет вызываться на форме, доставать значения и фильтровать данные
-
 }());

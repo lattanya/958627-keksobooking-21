@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-// перенесла переменную, объявляющую блок ошибки
   const template = document.querySelector(`#error`);
   const errorBlock = template.content.querySelector(`.error`);
 
