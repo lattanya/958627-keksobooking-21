@@ -6,41 +6,41 @@
   const DEBOUNCE_TIMEOUT = 500;
 
   const FilterHouseTypes = {
-    any: `any`,
-    palace: `palace`,
-    flat: `flat`,
-    house: `house`,
-    bungalow: `bungalow`,
+    ANY: `any`,
+    PALACE: `palace`,
+    FLAT: `flat`,
+    HOUSE: `house`,
+    BUNGALOW: `bungalow`,
   };
 
   const FilterHousePrice = {
-    any: `any`,
-    middle: `middle`,
-    low: `low`,
-    high: `high`,
+    ANY: `any`,
+    MIDDLE: `middle`,
+    LOW: `low`,
+    HIGH: `high`,
   };
 
   const FilterHouseRooms = {
-    any: `any`,
-    one: `1`,
-    two: `2`,
-    three: `3`,
+    ANY: `any`,
+    ONE: `1`,
+    TWO: `2`,
+    THREE: `3`,
   };
 
   const FilterHouseGuests = {
-    any: `any`,
-    two: `2`,
-    one: `1`,
-    zero: `0`,
+    ANY: `any`,
+    TWO: `2`,
+    ONE: `1`,
+    ZERO: `0`,
   };
 
   const FilterHouseFeatures = {
-    wifi: `wifi`,
-    dishwasher: `dishwasher`,
-    parking: `parking`,
-    washer: `washer`,
-    elevator: `elevator`,
-    conditioner: `conditioner`,
+    WIFI: `wifi`,
+    DISHWASHER: `dishwasher`,
+    PARKING: `parking`,
+    WASHER: `washer`,
+    ELEVATOR: `elevator`,
+    CONDITIONER: `conditioner`,
   };
 
   const KeyCodes = {
@@ -54,8 +54,8 @@
   };
 
   const HouseTypes = {
-    palace: `Дворец`,
-    flat: `Квартира`,
+    PALACE: `Дворец`,
+    FLAT: `Квартира`,
   };
 
   const HouseCapacity = {
@@ -111,21 +111,6 @@
     return elementCenter;
   };
 
-  // перепиcано на методы массивов
-
-  const clearMap = function () {
-    const allPins = window.map.querySelectorAll(`.map__pin:not(.map__pin--main)`);
-    allPins.forEach(function (pin) {
-      pin.remove();
-    });
-    const allCards = window.map.querySelectorAll(`.popup`);
-    if (allCards) {
-      allCards.forEach(function (card) {
-        card.remove();
-      });
-    }
-  };
-
   const debounce = function (cb) {
     let timeout;
     return function () {
@@ -146,7 +131,6 @@
   window.RoomsCapacity = RoomsCapacity;
   window.MinHouseTypePrices = MinHouseTypePrices;
 
-  window.clearMap = clearMap;
   window.findElementCenter = findElementCenter;
   window.debounce = debounce;
 

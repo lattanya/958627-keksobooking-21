@@ -10,7 +10,13 @@
   const filtersContainer = map.querySelector(`.map__filters-container`);
   const form = document.querySelector(`.ad-form`);
 
+  let isPinsRendered = false;
+
   const generateCardsAndPins = function (data) {
+    if (isPinsRendered) {
+      return;
+    }
+
     const fragment = document.createDocumentFragment();
     const fragmentForCards = document.createDocumentFragment();
 
@@ -28,6 +34,8 @@
 
     map.appendChild(fragment);
     map.insertBefore(fragmentForCards, filtersContainer);
+
+    isPinsRendered = true;
   };
 
   const toggleForm = function (isDisabled) {
@@ -69,11 +77,15 @@
     toggleForm(false);
     findPinPosition();
 
-    if (window.getData().length === 0) {
-      window.loadData(function (data) {
-        window.saveData(data);
-        generateCardsAndPins(data);
-      }, window.showErrorMessage);
+    if (!isPinsRendered) {
+      if (window.getData().length === 0) {
+        window.loadData(function (data) {
+          window.saveData(data);
+          generateCardsAndPins(data);
+        }, window.showErrorMessage);
+      } else {
+        generateCardsAndPins(window.getData());
+      }
     }
 
     const onMainPinMousemove = function (evt) {
@@ -92,9 +104,9 @@
       }
 
       if (evt.pageX < mapOffset) {
-        mainPin.style.left = `0`;
+        mainPin.style.left = -window.PinSizes.WIDTH / 2 + `px`;
       } else if (evt.pageX > maxXCoord) {
-        mainPin.style.left = mapWidth - window.PinSizes.WIDTH + `px`;
+        mainPin.style.left = mapWidth - window.PinSizes.WIDTH / 2 + `px`;
       }
 
     };
@@ -118,11 +130,33 @@
   mainPin.addEventListener(`mousedown`, onMainPinMousedown);
   mainPin.addEventListener(`keydown`, onMainPinEnterKeydown);
 
+  const clearMap = function () {
+    if (!isPinsRendered) {
+      return;
+    }
+
+    const allPins = window.map.querySelectorAll(`.map__pin:not(.map__pin--main)`);
+    allPins.forEach(function (pin) {
+      pin.remove();
+    });
+    const allCards = window.map.querySelectorAll(`.popup`);
+    if (allCards) {
+      allCards.forEach(function (card) {
+        card.remove();
+      });
+    }
+
+    isPinsRendered = false;
+  };
+
   // экспорт
 
   window.form = form;
   window.map = map;
+  window.mainPin = mainPin;
+  window.MAX_PINS_AMMOUNT = MAX_PINS_AMMOUNT;
   window.generateCardsAndPins = generateCardsAndPins;
   window.toggleForm = toggleForm;
-  window.mainPin = mainPin;
+  window.findPinPosition = findPinPosition;
+  window.clearMap = clearMap;
 })();

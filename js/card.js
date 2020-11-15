@@ -16,7 +16,7 @@
     address.textContent = obj.offer.address;
 
     const price = card.querySelector(`.popup__text--price`);
-    price.innerHTML = obj.offer.price + ` &#x20bd;/ночь`;
+    price.textContent = obj.offer.price + ` ₽/ночь`;
 
     const type = card.querySelector(`.popup__type`);
     type.textContent = window.HouseTypes[obj.offer.type];

@@ -21,7 +21,7 @@
     const valueFilterHouseType = filterHouseType.value;
     const offerType = offer.type;
 
-    return (valueFilterHouseType === window.FilterHouseTypes.any || offerType === valueFilterHouseType);
+    return (valueFilterHouseType === window.FilterHouseTypes.ANY || offerType === valueFilterHouseType);
   };
 
   const checkFilterHousePriceValue = function (offer) {
@@ -29,13 +29,13 @@
     const offerPrice = offer.price;
 
     switch (valueFilterHousePrice) {
-      case window.FilterHousePrice.any:
+      case window.FilterHousePrice.ANY:
         return true;
-      case window.FilterHousePrice.low:
+      case window.FilterHousePrice.LOW:
         return offerPrice < LOW_PRICE;
-      case window.FilterHousePrice.middle:
+      case window.FilterHousePrice.MIDDLE:
         return offerPrice >= LOW_PRICE && offerPrice <= HIGH_PRICE;
-      case window.FilterHousePrice.high:
+      case window.FilterHousePrice.HIGH:
         return offerPrice > HIGH_PRICE;
       default:
         return false;
@@ -47,13 +47,13 @@
     const offerRooms = offer.rooms;
 
     switch (valueFilterHouseRooms) {
-      case window.FilterHouseRooms.any:
+      case window.FilterHouseRooms.ANY:
         return true;
-      case window.FilterHouseRooms.one:
+      case window.FilterHouseRooms.ONE:
         return offerRooms === Number(valueFilterHouseRooms);
-      case window.FilterHouseRooms.two:
+      case window.FilterHouseRooms.TWO:
         return offerRooms === Number(valueFilterHouseRooms);
-      case window.FilterHouseRooms.three:
+      case window.FilterHouseRooms.THREE:
         return offerRooms === Number(valueFilterHouseRooms);
       default:
         return false;
@@ -65,13 +65,13 @@
     const offerGuests = offer.guests;
 
     switch (valueFilterHouseGuests) {
-      case window.FilterHouseGuests.any:
+      case window.FilterHouseGuests.ANY:
         return true;
-      case window.FilterHouseGuests.one:
+      case window.FilterHouseGuests.ONE:
         return offerGuests === Number(valueFilterHouseGuests);
-      case window.FilterHouseGuests.two:
+      case window.FilterHouseGuests.TWO:
         return offerGuests === Number(valueFilterHouseGuests);
-      case window.FilterHouseGuests.zero:
+      case window.FilterHouseGuests.ZERO:
         return offerGuests === Number(valueFilterHouseGuests);
       default:
         return false;
@@ -94,9 +94,15 @@
 
   };
 
-  const onFiltersChange = function () {
+  // переделать на цикл for, обьявить новый массив для отфильтрованных элементов,
+  //  сделать последовательный циккл с проверкой по кажддому критерию, пушить в новый массив отобранные элементы
 
-    const filterData = window.getData().filter(function (dataItem) {
+  const onFiltersChange = function () {
+    const data = window.getData();
+    const filterData = [];
+
+    for (let i = 0; i < data.length; i++) {
+      const dataItem = data[i];
       const offer = dataItem.offer;
       const isFilterValid = ((checkFilterHouseTypeValue(offer))
       && (checkFilterHousePriceValue(offer))
@@ -104,8 +110,13 @@
       && (checkFilterHouseGuestsValue(offer))
       && (checkFilterHouseFeaturesValue(offer)));
 
-      return isFilterValid;
-    });
+      if (isFilterValid) {
+        filterData.push(dataItem);
+      }
+      if (filterData.length >= window.MAX_PINS_AMMOUNT) {
+        break;
+      }
+    }
 
     window.clearMap();
     window.generateCardsAndPins(filterData);

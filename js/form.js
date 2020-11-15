@@ -70,6 +70,8 @@
     }
   };
 
+  syncPrice();
+
   selectType.addEventListener(`change`, syncPrice);
 
   // синхронизация поля даты вьезда и выезда
@@ -92,23 +94,25 @@
 
   const moveMainPinToCenter = function () {
     const mapCenter = window.findElementCenter(window.map);
-    const mainPinWidth = window.mainPin.offsetWidth;
-    const mainPinHeight = window.mainPin.offsetHeight;
-    window.mainPin.style.left = mapCenter.x + mainPinWidth / 2 + `px`;
-    window.mainPin.style.top = mapCenter.y + mainPinHeight / 2 + `px`;
+    window.mainPin.style.left = mapCenter.x - window.PinSizes.WIDTH / 2 + `px`;
+    window.mainPin.style.top = mapCenter.y - window.PinSizes.HEIGHT / 2 + `px`;
   };
 
-  const onFormSubmit = function () {
+  const resetForm = function () {
     window.form.reset();
     window.clearMap();
     window.toggleForm(true);
     window.map.classList.add(`map--faded`);
     moveMainPinToCenter();
+    window.findPinPosition();
   };
 
   window.form.addEventListener(`submit`, function (evt) {
     evt.preventDefault();
     const formData = new FormData(window.form);
-    window.sendData(formData, onFormSubmit, window.showErrorMessage);
+    window.sendData(formData, resetForm, window.showErrorMessage);
   });
+
+  const resetButton = window.form.querySelector('.ad-form__reset');
+  resetButton.addEventListener('click', resetForm);
 })();
