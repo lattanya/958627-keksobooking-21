@@ -94,13 +94,13 @@
       const mapOffset = (pageWidth - mapWidth) / 2;
       const maxXCoord = mapWidth + mapOffset;
 
-      mainPin.style.left = evt.pageX - mapOffset + `px`;
-      mainPin.style.top = evt.pageY + `px`;
+      mainPin.style.left = evt.pageX - mapOffset - window.PinSizes.WIDTH / 2 + `px`;
+      mainPin.style.top = evt.pageY - window.PinSizes.HEIGHT + `px`;
 
       if (evt.pageY < MIN_Y_COORD) {
-        mainPin.style.top = MIN_Y_COORD + `px`;
+        mainPin.style.top = MIN_Y_COORD - window.PinSizes.HEIGHT + `px`;
       } else if (evt.pageY > MAX_Y_COORD) {
-        mainPin.style.top = MAX_Y_COORD + `px`;
+        mainPin.style.top = MAX_Y_COORD - window.PinSizes.HEIGHT + `px`;
       }
 
       if (evt.pageX < mapOffset) {
@@ -108,7 +108,6 @@
       } else if (evt.pageX > maxXCoord) {
         mainPin.style.left = mapWidth - window.PinSizes.WIDTH / 2 + `px`;
       }
-
     };
 
     const onMainPinMouseup = function () {

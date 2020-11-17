@@ -3,11 +3,16 @@
 (function () {
   // валидация формы
 
+  // найти в разметке элемент (селект) с индексом capacity - выбор количества спальных мест
   const selectCapacity = window.form.querySelector(`#capacity`);
 
+  // найти в разметке элемент (селект) с индексом room_number - выбор количества комнат в доме
   const selectRooms = window.form.querySelector(`#room_number`);
 
+
   const isCapacityValid = function (capacityValue, roomsValue) {
+    // найти в объекте RoomsCapacity в lib значение, соответствующее ключу roomsValue.
+    // RoomsValue - параметр, который принимает в себя функция,  равный значению фильтра selectRooms (количество комнат), которое выбрал пользователь.
     const selectedRoomsData = window.RoomsCapacity[roomsValue];
     const currentAllowedGuests = selectedRoomsData.allowedGuests;
 
