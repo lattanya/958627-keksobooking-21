@@ -24,12 +24,17 @@
 
     for (let i = 0; i < partialData.length; i++) {
       const obj = partialData[i];
-      const pin = window.renderPin(obj);
-      const card = window.renderCard(obj);
-      fragment.appendChild(pin);
-      fragmentForCards.appendChild(card);
 
-      window.addShowCardHandler(pin, card);
+      // const pin = window.renderPin(obj);
+      const pin = new window.Pin(obj);
+
+      // const card = window.renderCard(obj);
+      const card = new window.Card(obj);
+
+      fragment.appendChild(pin.view);
+      fragmentForCards.appendChild(card.view);
+
+      window.addShowCardHandler(pin.view, card.view);
     }
 
     map.appendChild(fragment);

@@ -1,20 +1,30 @@
 'use strict';
 
 (function () {
-  const renderPin = function (obj) {
-    const template = document.querySelector(`#pin`);
-    const content = template.content.querySelector(`button`);
-    const pin = content.cloneNode(true);
-    const img = pin.querySelector(`img`);
+  class Pin {
+    static WIDTH = 65;
+    static HEIGHT = 87;
 
-    img.src = obj.author.avatar;
-    pin.style.left = obj.location.x + `px`;
-    pin.style.top = obj.location.y + `px`;
+    constructor (offer) {
+      this.offer = offer;
+      this.view = this.render();
+    };
 
-    return pin;
+    render () {
+      const template = document.querySelector(`#pin`);
+      const content = template.content.querySelector(`button`);
+      const pin = content.cloneNode(true);
+      const img = pin.querySelector(`img`);
+
+      img.src = this.offer.author.avatar;
+      pin.style.left = this.offer.location.x + `px`;
+      pin.style.top = this.offer.location.y + `px`;
+
+      return pin;
+    };
   };
 
   // экспорт
-  window.renderPin = renderPin;
+  window.Pin = Pin;
 
 })();
